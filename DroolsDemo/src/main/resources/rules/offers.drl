@@ -1,0 +1,10 @@
+package rules;
+import org.drools.DroolsDemo.PaymentOffer;
+
+rule "offer for Paytm" dialect  "mvel"
+    when
+        my_payment_offer: PaymentOffer(Channel=="phonepe")
+    then
+        my_payment_offer.setDiscount(25);
+        System.out.println("La oferta es: "+my_payment_offer.getDiscount());
+    end
